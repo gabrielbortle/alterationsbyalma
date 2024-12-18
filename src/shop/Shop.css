@@ -1,0 +1,168 @@
+/* Apply border-box box model globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Container for the shop page */
+.shop-container {
+  padding: 20px;
+  text-align: center;
+  width: 90%;
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* Heading styling */
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Product list layout using flex */
+.product-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 20px;
+  justify-content: space-between; /* Distribute space evenly between items */
+}
+
+/* Product card styling */
+.product-card {
+background-color: #fff8e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: calc(33.33% - 20px); /* 3 cards per row with space between them */
+  box-sizing: border-box; /* Ensures padding and borders are included in the width */
+}
+
+/* Image container with centering using flexbox */
+.product-card .image-container {
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+  height: 250px; /* Fixed height for image container */
+}
+
+/* Image styling */
+.product-card .image-container img {
+  width: 100%; /* Image takes up 100% of container width */
+  max-width: 250px; /* Ensure image doesn’t exceed 250px */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image fits without stretching */
+  margin-bottom: 15px; /* Optional: adds spacing below the image */
+}
+
+/* Button styling */
+button {
+  background-color: #ac1515;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #8c1111; /* Slightly darker red */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #8c1111;
+}
+
+/* Responsive image adjustments for smaller screens (768px and below) */
+@media (max-width: 768px) {
+ 
+
+  .product-card .image-container img {
+    width: 90%; /* Increase image width to 90% of container on smaller screens */
+    max-width: 300px; /* Set smaller max width for mobile screens */
+  }
+
+  .product-card {
+    width: 100%; /* 1 card per row on very small screens */
+  }
+
+  .shop-container {
+    width: 100%;
+    margin: 0;
+  }
+  .modal-content img {
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+
+    max-width: none ;
+    max-height: none;
+  }
+  
+  
+.close {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+}
+

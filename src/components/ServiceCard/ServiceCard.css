@@ -1,0 +1,76 @@
+.service-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center; /* Center the entire service card */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+.service-title {
+    font-size: 2.5rem; /* Increase font size */
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center; /* Center the title */
+}
+
+.service-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start;
+    width: 100%; /* Ensure the content takes up the full width */
+    box-sizing: border-box; /* Include padding and borders in the width calculation */
+}
+
+.service-image {
+    flex: 0 0 400px; /* Set a fixed width for the image */
+    text-align: center;
+    margin-right: 20px; /* Space between image and content */
+    max-width: 100%; /* Ensure the image doesn't overflow */
+}
+
+.service-image img {
+    width: 100%; /* Keeps the image responsive */
+    max-width: 500px; /* Max size for image */
+    border-radius: 10px;
+}
+
+.service-details {
+    flex: 1;
+    padding: 20px;
+    max-width: 600px; /* Limit the width of the table area */
+    box-sizing: border-box; /* Ensure padding is accounted for */
+}
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* Center the table */
+    min-height: 500px; /* Set a minimum height for the table */
+}
+
+
+.pricing-table th,
+.pricing-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.pricing-table th {
+    background-color: #fff8e9;
+}
+
+@media (max-width: 768px) {
+    .service-image img {
+        width: 80%; /* Keeps the image responsive on small screens */
+    }
+    .service-content {
+        flex-direction: column; /* Stack the image and table on mobile */
+    }
+    .service-image {
+        margin-right: 0; /* Remove the margin between image and content on mobile */
+    }
+}

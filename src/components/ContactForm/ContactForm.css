@@ -1,0 +1,87 @@
+/* General form styling */
+.yourinfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .yourinfo label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .yourinfo input,
+  .yourinfo textarea {
+    font-size: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .yourinfo input:focus,
+  .yourinfo textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .yourinfo input::placeholder,
+  .yourinfo textarea::placeholder {
+    color: #aaa;
+  }
+  
+  .yourinfo textarea {
+    resize: vertical;
+  }
+  
+  .sendBtn {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .sendBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  .sendBtn:active {
+    background-color: #004080;
+  }
+  
+  @media (max-width: 768px) {
+    .yourinfo {
+      padding: 1.5rem;
+      max-width: 300px;
+    }
+  
+    .yourinfo label {
+      font-size: 0.9rem;
+    }
+  
+    .yourinfo input,
+    .yourinfo textarea {
+      font-size: 0.95rem;
+      padding: 0.6rem;
+    }
+  
+    .sendBtn {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+  }
+  

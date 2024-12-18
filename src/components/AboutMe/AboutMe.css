@@ -1,0 +1,54 @@
+.about-me-section {
+  background-color: #f3f7ff; /* Adjust the background color as needed */
+  padding: 40px 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-me-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-me-image {
+  flex: 0 0 300px; /* Adjust the width of the image container */
+  text-align: center;
+  line-height: 5%;
+  align-items: center;
+}
+
+.about-me-image img {
+  width: 100%;
+  border-radius: 10px; /* Optional: Add rounded corners to the image */
+}
+
+.about-me-text {
+  flex: 1;
+  margin-left: 5%; /* Adjust the space between the image and text */
+  font-size: 20px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .about-me-content {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+  }
+
+  .about-me-text {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 20px; /* Add space between image and text */
+  }
+
+  .about-me-image {
+    flex: 0 0 auto; /* Reset flex sizing */
+    width: 100%; /* Ensure it uses full width on smaller screens */
+    margin-bottom: 20px; /* Add space below the image */
+  }
+}

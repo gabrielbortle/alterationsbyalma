@@ -1,0 +1,241 @@
+/* General Navbar Styles */
+/* Reset default margin */
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    background-color: #fff8e9; /* Dark background */
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center text */
+  
+  }
+  
+  /* Logo Styling */
+  .navbar-logo h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #ff6600; /* Bright, professional accent color */
+    font-weight: bold;
+  }
+  
+  /* Navbar Links */
+  .navbar-links {
+    list-style: none;
+    display: flex; /* Align items horizontally on desktop */
+    gap: 3rem;
+    margin: 0; /* Ensure there's no extra margin */
+    justify-content: center; /* Center the links horizontally */
+  
+  }
+  
+  .navbar-links li a {
+    color: #5C5C5C;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.75rem;
+    position: relative; /* For underline effect */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .navbar-logo {
+    margin-left: 5%; /* Push the logo from the left */
+    display: flex;
+    align-items: center; /* Vertically center the logo */
+  }
+  
+  
+  .navbar-logo img.logo {
+    max-width: 300px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Optional: Center the logo */
+  }
+  
+  /* Hover Effects */
+  .navbar-links li a:hover {
+    color: black; /* Change text color on hover */
+  }
+  
+  /* Hover underline effect */
+  .navbar-links li a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Position it below the link */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease; /* Smooth transition for the underline */
+  }
+  
+  .navbar-links li a:hover::after {
+    width: 100%; /* Full width when hovered */
+  }
+  
+  
+  
+  
+  
+  /* Mobile Menu Toggle */
+  .navbar-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 3rem; /* Increased font size for better visibility */
+    color: black; /* Bright color for better visibility */
+    cursor: pointer;
+    padding: 15px; /* Add padding to make the button larger */
+    z-index: 1001; /* Ensure the button is on top */
+    transition: color 0.3s ease; /* Smooth color transition */
+    margin: 0; /* Remove margin */
+    background-color: transparent; /* Ensure no background color */
+  
+  }
+  
+  /* Toggle Button Icon (3 lines) */
+  .navbar-toggle-icon {
+    width: 35px; /* Width of each line */
+    height: 5px; /* Height of each line */
+    background-color: black; /* Color of the lines */
+    margin: 6px 0; /* Space between the lines */
+    display: block; /* Ensure the span elements are block-level for stacking */
+  }
+  
+  /* Toggle Button Lines - Default */
+  .navbar-toggle-icon {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add smooth animations */
+  }
+  
+  /* When the mobile menu is active */
+  .navbar.active .navbar-toggle-icon:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* Rotate the first line */
+  }
+  
+  .navbar.active .navbar-toggle-icon:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+  }
+  
+  .navbar.active .navbar-toggle-icon:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* Rotate the last line */
+  }
+  
+  /* Hover Effect on Toggle Button */
+  .navbar-toggle:hover {
+    color: #fff; /* Change the entire button's color on hover for contrast */
+    background-color: transparent; /* Ensure no background color */
+  
+  }
+  
+  /* Remove hover effect on individual lines */
+  .navbar-toggle-icon:hover {
+    background-color: black; /* Ensure the lines stay the same color */
+  }
+  
+  /* Show the toggle button on mobile screens */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: row; /* Ensure logo and toggle button are in a row */
+      justify-content: space-between; /* Space between logo and toggle button */
+      padding: 1rem; /* Adjust padding on mobile */
+    }
+  
+    .navbar-links {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column; /* Stack links vertically on mobile */
+      justify-content: center;
+      align-items: center;
+      background-color: #fff8e9;
+      gap: 2rem;
+      transition: transform 0.3s ease;
+      transform: translateX(-100%); /* Slide out of view by default */
+      margin-top: 0; /* Reset any unwanted top margin */
+      padding: 0; /* Ensure no padding */
+    }
+
+     
+  .navbar-links li a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 2rem;
+    position: relative; /* For underline effect */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  .navbar-logo img.logo {
+    max-width: 200px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Optional: Center the logo */
+  }
+  
+    .navbar-links.active {
+      transform: translateX(0); /* Slide menu into view */
+    }
+  
+    .navbar-toggle {
+      display: block; /* Show the toggle button on mobile */
+      background-color: transparent; /* Transparent background */
+      padding: 15px; /* Increase padding for better clickability */
+      border: none;
+      font-size: 2rem; /* Adjust font size */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      background-color: #fff8e9;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 2rem 0;
+      z-index: 1000;
+      text-align: center;
+    }
+  
+    .navbar-links.active {
+      display: flex;
+    }
+  
+    .navbar-links li {
+      padding: 1rem 0;
+      text-align: center;
+    }
+  
+  
+    /* Mobile dropdown fixes */
+    .navbar-dropdown .dropdown-menu {
+      top: 60px; /* Ensure it's positioned below the navbar */
+      z-index: 1002; /* Keeps it above other content */
+    }
+  
+    .navbar-dropdown.open .dropdown-menu {
+      display: block;
+    }
+  }

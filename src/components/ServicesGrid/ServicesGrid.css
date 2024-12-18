@@ -1,0 +1,72 @@
+.services-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatically fill columns */
+  gap: 20px;
+  justify-items: center; /* Centers each item horizontally */
+  align-items: center; /* Centers each item vertically */
+  padding: 20px;
+}
+
+.row-item {
+  display: flex;
+  justify-content: center; /* Centers content horizontally within each row item */
+  align-items: center; /* Centers content vertically within each row item */
+  transition: transform 0.2s;
+  margin-bottom: 20px;
+}
+
+.service-box {
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.service-box:hover {
+  transform: scale(1.1);
+}
+
+.service-link {
+  color: black;
+  text-decoration: none;
+}
+
+.serviceImages {
+  margin: 10px;
+  border: 1px solid black;
+  width: 100%; /* Ensures images fill the service box */
+  max-width: 280px; /* Restrict max width to 280px */
+  border-radius: 10px; /* This will create a 10px rounded corner */
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+
+  .services-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .row-container {
+    grid-template-columns: 1fr; /* Stack items in a single column */
+    gap: 20px;
+  }
+
+  .service-box {
+    width: 90%; /* Makes service boxes take 90% of the width on mobile */
+  }
+
+  .serviceImages {
+    width: 100%; /* Ensures images fill the box width */
+  }
+}

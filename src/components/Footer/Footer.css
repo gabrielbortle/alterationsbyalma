@@ -1,0 +1,89 @@
+/* General Footer Styling */
+footer {
+    background-color: #111; /* Light background color */
+    color: white; /* Dark text for contrast */
+    padding: 40px 0;
+    text-align: center; /* Center text */
+    text-transform: uppercase;
+
+}
+
+/* Footer Navigation */
+.footerNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.footerNav a {
+    color: white; /* Dark color for links */
+    text-decoration: none;
+    font-size: 1.75rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footerNav a:hover {
+    color: white; /* Highlight color on hover */
+}
+
+/* Grid Layout for Location and Info Section */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.info {
+    text-align: center; /* Center text */
+}
+
+.info h3, .info h2 {
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* Footer Bottom Section */
+.footerBottom {
+    padding: 20px;
+}
+
+.footerBottom p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footerNav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .info {
+        text-align: center; /* Center text */
+    }
+
+    .footerBottom p {
+        font-size: 0.75rem;
+    }
+}

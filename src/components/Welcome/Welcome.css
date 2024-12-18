@@ -1,0 +1,47 @@
+/* Centering the .welcome component */
+.welcome {
+    background-color: #fff8e9;
+    width: 50%; /* Adjust the width as needed */
+    height: 35%; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically and horizontally center content */
+    padding: 20px; /* Add padding to ensure content doesn’t touch edges */
+    box-sizing: border-box; /* Includes padding in width/height calculations */
+    border-radius: 70px;
+    border: 1px solid #111;
+    overflow: hidden; /* Prevents content from spilling out */
+    margin: 0 auto; /* Center horizontally */
+    position: relative; /* Allows for centering without absolute positioning */
+    margin-top: -5%;
+}
+
+.intro {
+    text-align: center;
+}
+
+.intro h2 {
+    margin: 0; /* Remove default margin for better control */
+    word-wrap: break-word; /* Ensure long words break properly */
+    line-height: 1.5; /* Adjust line height for readability */
+}
+.intro p {
+    margin: 0; /* Remove default margin for better control */
+    word-wrap: break-word; /* Ensure long words break properly */
+    line-height: 1.5; /* Adjust line height for readability */
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .welcome {
+        width: 80%; /* Adjust width for smaller screens */
+        height: auto; /* Let height adjust based on content */
+        padding: 15px; /* Adjust padding for smaller screens */
+        margin-top: -10%;
+    }
+
+    .intro h2 {
+        font-size: 1rem; /* Adjust font size for readability */
+    }
+}
