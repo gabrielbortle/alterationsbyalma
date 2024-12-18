@@ -1,50 +1,49 @@
-require('dotenv').config(); // Load environment variables
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event) => {
-  console.log('Event Method:', event.httpMethod); // Log the method
+  // Define CORS headers to allow all origins
+  const headers = {
+    'Access-Control-Allow-Origin': '*', // Allow all origins (replace with your origin for more security)
+    'Access-Control-Allow-Methods': 'OPTIONS, POST', // Allow OPTIONS (preflight) and POST methods
+    'Access-Control-Allow-Headers': 'Content-Type', // Allow specific headers
+  };
 
-  // Handle CORS preflight request
+  // Handle preflight OPTIONS requests
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*", // Adjust this to allow specific domains
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-      body: JSON.stringify({ message: "CORS preflight successful" }),
+      headers: headers,
+      body: JSON.stringify({ message: 'CORS preflight successful' }),
     };
   }
 
-  // Handle POST request (sending email logic)
+  // Handle POST requests (form submission)
   if (event.httpMethod === 'POST') {
     const { name, email, phone, services, message } = JSON.parse(event.body);
 
-    // Ensure all required fields are present
     if (!name || !email || !message) {
       return {
         statusCode: 400,
+        headers: headers,
         body: JSON.stringify({ error: 'Name, email, and message are required' }),
       };
     }
 
     try {
-      // Set up the SMTP transporter using Hostinger's SMTP settings
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: parseInt(process.env.SMTP_PORT),
-        secure: false, // true for 465, false for other ports
+        secure: false,
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
       });
 
-      // Send the email
       await transporter.sendMail({
         from: process.env.SMTP_USER,
-        to: process.env.SMTP_USER, // Send the email to the configured SMTP user
+        to: process.env.SMTP_USER,
         subject: `New Contact Form Submission from ${name}`,
         text: `
           Name: ${name}
@@ -57,20 +56,23 @@ exports.handler = async (event) => {
 
       return {
         statusCode: 200,
+        headers: headers,
         body: JSON.stringify({ message: 'Email sent successfully!' }),
       };
     } catch (error) {
       console.error('Error sending email:', error);
       return {
         statusCode: 500,
+        headers: headers,
         body: JSON.stringify({ error: 'Failed to send email' }),
       };
     }
   }
 
-  // If it's not a POST or OPTIONS request, return Method Not Allowed
+  // Return error for unsupported methods
   return {
     statusCode: 405,
-    body: JSON.stringify({ error: 'Method not allowed' }),
+    headers: headers,
+    body: JSON.stringify({ error: 'Method Not Allowed' }),
   };
 };
