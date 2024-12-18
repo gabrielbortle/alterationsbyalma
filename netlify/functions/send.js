@@ -13,7 +13,7 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers: headers,
+      headers,
       body: JSON.stringify({ message: 'CORS preflight successful' }),
     };
   }
@@ -22,15 +22,17 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'POST') {
     const { name, email, phone, services, message } = JSON.parse(event.body);
 
+    // Check for required fields
     if (!name || !email || !message) {
       return {
         statusCode: 400,
-        headers: headers,
+        headers,
         body: JSON.stringify({ error: 'Name, email, and message are required' }),
       };
     }
 
     try {
+      // Create a Nodemailer transporter
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: parseInt(process.env.SMTP_PORT),
@@ -41,6 +43,7 @@ exports.handler = async (event) => {
         },
       });
 
+      // Send the email asynchronously
       await transporter.sendMail({
         from: process.env.SMTP_USER,
         to: process.env.SMTP_USER,
@@ -56,14 +59,14 @@ exports.handler = async (event) => {
 
       return {
         statusCode: 200,
-        headers: headers,
+        headers,
         body: JSON.stringify({ message: 'Email sent successfully!' }),
       };
     } catch (error) {
       console.error('Error sending email:', error);
       return {
         statusCode: 500,
-        headers: headers,
+        headers,
         body: JSON.stringify({ error: 'Failed to send email' }),
       };
     }
@@ -72,7 +75,7 @@ exports.handler = async (event) => {
   // Return error for unsupported methods
   return {
     statusCode: 405,
-    headers: headers,
+    headers,
     body: JSON.stringify({ error: 'Method Not Allowed' }),
   };
 };

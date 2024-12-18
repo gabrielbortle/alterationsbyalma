@@ -1,0 +1,6 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  # Increase the function timeout to 30 seconds (Max allowed is 26 seconds)
+  timeout = 26
