@@ -31,7 +31,7 @@ const ContactForm = () => {
 
     try {
       // Make the API call to your backend to send the email
-      const response = await axios.post('https://alterationsbyalma.com/.netlify/functions/send', formData); // Adjust this URL based on your actual backend endpoint
+      const response = await axios.post('https://alterationsbyalma.netlify.app/.netlify/functions/send', formData); // Adjust this URL based on your actual backend endpoint
 
       if (response.status === 200) {
         console.log('Email sent successfully:', response);
