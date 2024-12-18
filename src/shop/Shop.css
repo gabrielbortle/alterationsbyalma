@@ -9,10 +9,8 @@
 .shop-container {
   padding: 20px;
   text-align: center;
-  width: 90%;
+  width: 100%;
   background-color: white;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 /* Heading styling */

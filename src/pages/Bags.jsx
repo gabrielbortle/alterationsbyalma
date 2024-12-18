@@ -1,10 +1,11 @@
 import React from 'react';
 import Shop from '../Shop/Shop';
+import BagsHero from '../components/BagsHero/BagsHero';
 
 const Bags = () => {
   return (
     <div>
-      <h1>Bags Page</h1>
+      <BagsHero />
       {/* Add content here */}
       <Shop />
       

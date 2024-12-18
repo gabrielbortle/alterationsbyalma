@@ -1,0 +1,43 @@
+.bags-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust based on your design */
+    background-image: url('../../assets/bagsbackground.jpg'); /* Your image */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* This will allow positioning the overlay */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .bags-hero-overlay {
+    position: absolute; /* Position it over the background */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  }
+  
+  .bags-hero-content {
+    color: #fff;
+    z-index: 1; /* Ensure the content stays on top of the overlay */
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal centering */
+    text-align: center;
+  }
+  
+  .hero-heading {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  

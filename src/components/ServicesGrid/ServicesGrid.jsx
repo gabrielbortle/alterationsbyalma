@@ -36,20 +36,23 @@ const ServicesGrid = () => {
               <p>Starting at $35</p>
             </div>
           </div>
+            <div className="row-item">
+              <div className="service-box">
+                <Link to="/pant-repairs" className="service-link">
+                  <h3>Pants Repairs</h3>
+                </Link>
+                <Link to="/pant-repairs" className="service-link">
+                  <img src={PantsImg} className="serviceImages" alt="Pants Repairs" />
+                </Link>
+                <p>Starting at $28</p>
+              </div>
+            </div>
         </div>
 
+
+
         <div className="row-container">
-          <div className="row-item">
-            <div className="service-box">
-              <Link to="/pant-repairs" className="service-link">
-                <h3>Pants Repairs</h3>
-              </Link>
-              <Link to="/pant-repairs" className="service-link">
-                <img src={PantsImg} className="serviceImages" alt="Pants Repairs" />
-              </Link>
-              <p>Starting at $28</p>
-            </div>
-          </div>
+          
 
           <div className="row-item">
             <div className="service-box">
@@ -62,9 +65,7 @@ const ServicesGrid = () => {
               <p>Starting at $25</p>
             </div>
           </div>
-        </div>
 
-        <div className="row-container">
           <div className="row-item">
             <div className="service-box">
               <Link to="/formal-dress-alterations" className="service-link">
@@ -76,7 +77,6 @@ const ServicesGrid = () => {
               <p>Starting at $25</p>
             </div>
           </div>
-
           <div className="row-item">
             <div className="service-box">
               <Link to="/formal-jacket-and-pants-alterations" className="service-link">
@@ -88,7 +88,22 @@ const ServicesGrid = () => {
               <p>Starting at $28</p>
             </div>
           </div>
+
         </div>
+
+      
+      
+      <div className="row-container">
+        <div className="row-item">
+          <div className="service-box">
+            <h3>Bridal Alterations</h3>
+            <img src={CasualImg} className="serviceImages" alt="Formal Jacket & Pants" />
+            <p>Estimates available upon request at Initial Fitting</p>
+            <Link to="/contact" className="service-button">Contact Us</Link> {/* Link to contact page */}
+          </div>
+        </div>
+      </div>
+
       </div>
     </div>
   );
