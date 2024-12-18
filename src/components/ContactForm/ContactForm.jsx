@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import './ContactForm.css'
+import './ContactForm.css';
+import axios from 'axios';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const ContactForm = () => {
     message: ""
   });
 
+  const [status, setStatus] = useState(null); // To show success/error messages
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevState) => ({
@@ -18,10 +21,27 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Logic to send the email goes here, e.g., calling an API endpoint or emailJS
+
+    // Reset status before submission
+    setStatus(null);
+
     console.log("Form submitted with data:", formData);
+
+    try {
+      // Make the API call to your backend to send the email
+      const response = await axios.post('https://alterationsbyalma.com/.netlify/functions/send', formData); // Adjust this URL based on your actual backend endpoint
+
+      if (response.status === 200) {
+        console.log('Email sent successfully:', response);
+        setStatus({ type: 'success', message: 'Your message was sent successfully!' });
+      }
+    } catch (error) {
+      console.error('Error sending email:', error.response?.data || error.message);
+      setStatus({ type: 'error', message: 'There was an error sending your message. Please try again later.' });
+    }
+
     // Reset the form after submission
     setFormData({
       name: "",
@@ -74,7 +94,7 @@ const ContactForm = () => {
         required
       />
 
-      <label htmlFor="message">Your Messages</label>
+      <label htmlFor="message">Your Message</label>
       <textarea
         id="message"
         rows="4"
@@ -85,6 +105,13 @@ const ContactForm = () => {
       ></textarea>
 
       <input type="submit" value="SEND" className="sendBtn" />
+
+      {/* Display success or error messages */}
+      {status && (
+        <div className={`status-message ${status.type}`}>
+          {status.message}
+        </div>
+      )}
     </form>
   );
 };
