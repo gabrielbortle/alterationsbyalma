@@ -1,4 +1,3 @@
-require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event) => {
@@ -32,21 +31,21 @@ exports.handler = async (event) => {
     }
 
     try {
-      // Create a Nodemailer transporter
+      // Create a Nodemailer transporter with hardcoded SMTP settings
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: parseInt(process.env.SMTP_PORT),
-        secure: false,
+        host: 'smtp.hostinger.com', // Replace with your SMTP host
+        port: 465, // Secure SSL port
+        secure: true, // Use SSL
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user: process.env.SMTP_USER, // Use environment variable for email
+          pass: process.env.SMTP_PASS, // Use environment variable for password
         },
       });
 
       // Send the email asynchronously
       await transporter.sendMail({
-        from: process.env.SMTP_USER,
-        to: process.env.SMTP_USER,
+        from: process.env.SMTP_USER, // Use environment variable for email
+        to: process.env.SMTP_USER, // Send to the same email address (can be changed)
         subject: `New Contact Form Submission from ${name}`,
         text: `
           Name: ${name}
