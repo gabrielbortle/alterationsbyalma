@@ -1,6 +1,8 @@
 [build]
-  functions = "netlify/functions"
+  publish = "build"
+  command = "npm run build"
 
 [functions]
-  # Increase the function timeout to 30 seconds (Max allowed is 26 seconds)
-  timeout = 26
+  directory = "netlify-functions"
+  [functions.timeout]
+    seconds = 26  # Set timeout for serverless functions to 26 seconds
