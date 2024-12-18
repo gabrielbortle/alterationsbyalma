@@ -1,4 +1,6 @@
+[build]
+  functions = "netlify/functions"  # Correct path for your functions directory
 
-  functions = "netlify/functions"
-  [functions.timeout]
-    seconds = 26  # Set timeout for serverless functions to 26 seconds
+[functions]
+  timeout = 26  # Timeout for serverless functions
+
