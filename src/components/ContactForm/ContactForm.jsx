@@ -74,7 +74,7 @@ const ContactForm = () => {
         required
       />
 
-      <label htmlFor="message">Your Message</label>
+      <label htmlFor="message">Your Messages</label>
       <textarea
         id="message"
         rows="4"
