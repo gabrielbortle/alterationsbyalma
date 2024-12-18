@@ -1,6 +1,6 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard/ServiceCard'; // Import the ServiceCard component
-import JacketImage from '../assets/DRESSIMAGE.jpg'; // Replace with the actual image path
+import FormalPants from '../assets/formalPants.jpg'; // Replace with the actual image path
 
 const FormalJacketPants = () => {
   const pricing = [
@@ -21,7 +21,7 @@ const FormalJacketPants = () => {
         title="Formal Jacket, Coat, Blazer, & Pants Alterations"
         serviceName="Formal Jacket, Coat, Blazer, & Pants Alterations"
         pricing={pricing}
-        imageUrl={JacketImage} // Replace with the correct image path
+        imageUrl={FormalPants} // Replace with the correct image path
       />
     </div>
   );

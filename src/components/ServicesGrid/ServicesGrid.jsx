@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'; // Importing Link from react-router-dom
 import './ServicesGrid.css';
 
 // Importing images
-import GeneralImg from './generalrepairs.jpg';
+import GeneralImg from './generalImage.jpg';
 import PantsImg from './pantsrepairs.jpg';
 import JacketImg from './jacketzipperrepairs.jpg';
-import CasualImg from './casual&semi.jpg';
+import CasualImg from './casualFront.jpg';
+import BridalImg from './bridalAlterations.jpg'
+import FormalImg from './formalFront.jpg'
+import FormalJacket from './formalJacket.jpg'
 
 const ServicesGrid = () => {
   return (
@@ -72,7 +75,7 @@ const ServicesGrid = () => {
                 <h3>Formal Dress Alterations</h3>
               </Link>
               <Link to="/formal-dress-alterations" className="service-link">
-                <img src={CasualImg} className="serviceImages" alt="Formal Dress" />
+                <img src={FormalImg} className="serviceImages" alt="Formal Dress" />
               </Link>
               <p>Starting at $25</p>
             </div>
@@ -83,7 +86,7 @@ const ServicesGrid = () => {
                 <h3>Formal Jacket & Pants Alterations</h3>
               </Link>
               <Link to="/formal-jacket-and-pants-alterations" className="service-link">
-                <img src={CasualImg} className="serviceImages" alt="Formal Jacket & Pants" />
+                <img src={FormalJacket} className="serviceImages" alt="Formal Jacket & Pants" />
               </Link>
               <p>Starting at $28</p>
             </div>
@@ -97,7 +100,7 @@ const ServicesGrid = () => {
         <div className="row-item">
           <div className="service-box">
             <h3>Bridal Alterations</h3>
-            <img src={CasualImg} className="serviceImages" alt="Formal Jacket & Pants" />
+            <img src={BridalImg} className="serviceImages" alt="Bridal Alterations" />
             <p>Estimates available upon request at Initial Fitting</p>
             <Link to="/contact" className="service-button">Contact Us</Link> {/* Link to contact page */}
           </div>

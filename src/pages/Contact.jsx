@@ -1,10 +1,11 @@
 import React from 'react';
 import ContactForm from '../components/ContactForm/ContactForm';
+import ContactHero from '../components/ContactHero/ContactHero';
 
 const Contact = () => {
   return (
     <div>
-      <h1>Contact Page</h1>
+      <ContactHero />
       {/* Add content here */}
       <ContactForm />
     </div>

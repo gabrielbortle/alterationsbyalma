@@ -1,6 +1,6 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard/ServiceCard'; // Import the ServiceCard component
-import GeneralImage from '../assets/GeneralImage.jpg'
+import GeneralImage from '../assets/generalrepairs.jpg'
 
 
 const GeneralRepairs = () => {

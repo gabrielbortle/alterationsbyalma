@@ -1,6 +1,6 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard/ServiceCard'; // Import the ServiceCard component
-import pantsImage from '../assets/pantsImage.jpg'
+import pantsImage from '../assets/pantsBack.jpg'
 
 const PantRepairs = () => {
   const pricing = [

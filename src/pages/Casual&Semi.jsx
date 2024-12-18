@@ -1,6 +1,6 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard/ServiceCard'; // Import the reusable ServiceCard component
-import DressImage from '../assets/dressImage.jpg'; // Replace with the correct path to your image
+import DressImage from '../assets/casualBack.jpg'; // Replace with the correct path to your image
 
 const CasualSemiAlterations = () => {
   const pricing = [

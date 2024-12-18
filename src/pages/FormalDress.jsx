@@ -1,6 +1,6 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard/ServiceCard'; // Assuming the path to your reusable component
-import DressImage from '../assets/dressImage.jpg'; // Replace with the correct path to your image
+import FormalBackImg from '../assets/formalBack.jpg'; // Replace with the correct path to your image
 
 const FormalDressAlterations = () => {
   const pricing = [
@@ -24,7 +24,7 @@ const FormalDressAlterations = () => {
         title="Formal Dress Alterations"
         serviceName="Formal Dress Alterations"
         pricing={pricing}
-        imageUrl={DressImage} // Image for the service
+        imageUrl={FormalBackImg} // Image for the service
       />
     </div>
   );
