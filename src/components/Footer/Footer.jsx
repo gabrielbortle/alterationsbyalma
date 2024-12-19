@@ -16,7 +16,7 @@ const Footer = () => {
             <p>30 W Birch Circle</p>
             <p>Victor ID, 83455</p>
             <p>*Appointment Only*</p>
-            <p>*Drop Box Available*</p>
+            <p>*DropBox Available*</p>
             <h2>Make an appointment!</h2>
             <h3>Alma Giron</h3>
             <p>(817) 793 - 2008</p>
