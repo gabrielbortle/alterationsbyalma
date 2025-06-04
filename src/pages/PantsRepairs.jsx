@@ -4,14 +4,15 @@ import pantsImage from '../assets/pantsBack.jpg'
 
 const PantRepairs = () => {
   const pricing = [
-    { service: 'Basic Cut & Sewn Hem', price: '$25' },
-    { service: 'Original Hem*', price: '$35' },
-    { service: 'Blind/Cuffed/ Wide Hem*', price: '$30+' },
-    { service: 'Ski Pants Sewn Hem*', price: '$60+' },
-    { service: 'Waist Take-In/Let-out*', price: '$45+' },
-    { service: 'Leg Taper*', price: '$35+' },
-    { service: 'Zipper Replacement', price: '$35+' },
-    { service: 'Adding Fabric to Lengthen', price: '$35' },
+    { service: 'Basic Cut & Sewn Hem ( wide + $5 )', price: '$15' },
+    { service: 'Original Hem* ( Wide +5 )', price: '$20' },
+    { service: 'Blind / Cuffed', price: '$20+' },
+    { service: 'Ski Pants Sewn Hem*', price: '$45+' },
+    { service: 'Waist Take-In/Let-out* ( Seat/rise )', price: '$36' },
+    { service: 'Seat Only ', price: '$36' },
+    { service: 'Leg Taper*', price: '20' },
+    { service: 'Zipper Replacement', price: '$25' },
+    { service: 'Adding Fabric to Lengthen', price: '$20' },
     { service: '* Items with Additional Lining', price: '$10' },
   ];
 

@@ -4,12 +4,13 @@ import zipperImage from '../assets/zipperImage.jpg'
 
 const JacketZipper = () => {
   const pricing = [
-    { service: '1-10 Inches', price: '$45' },
-    { service: '10-20 Inches', price: '$55' },
-    { service: '20-30 Inches', price: '$65' },
+    { service: 'Zipper Slider / Pull', price: '$15+' },
+    { service: '1-10 Inches', price: '$35' },
+    { service: '10-20 Inches', price: '$45' },
+    { service: '20-30 Inches', price: '$55' },
     { service: 'Per Additional 10 Inches', price: '$10' },
-    { service: 'Sleeve Shortening*', price: '$45' },
-    { service: '* Items with Additional Lining', price: '$15' },
+    { service: 'Sleeve Shortening*', price: '$30' },
+    { service: '* Items with Additional Lining', price: '$10' },
   ];
 
   return (

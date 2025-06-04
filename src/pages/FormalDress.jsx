@@ -4,18 +4,20 @@ import FormalBackImg from '../assets/formalBack.jpg'; // Replace with the correc
 
 const FormalDressAlterations = () => {
   const pricing = [
-    { service: 'Dress Sewn Hem - 2 Layers', price: '$60' },
-    { service: 'Additional Layer', price: '$35' },
-    { service: 'Dress Hem Extra Wide Additional', price: '$20' },
-    { service: 'Shoulder, Sleeve, Collar Adjustments', price: '$40+' },
-    { service: 'Add Cups, Elastic, Or Snaps', price: '$20' },
-    { service: 'Strap Adjustment', price: '$25+' },
-    { service: 'Bodice Adjustment', price: '$50' },
-    { service: 'Bodice Adjustment with Lining', price: '$60' },
-    { service: 'Bodice Adjustment with Boning', price: '$70' },
-    { service: 'Bodice Adjustment with Beading', price: '$80' },
-    { service: 'Waist / Hip Adjustment', price: '$50+' },
-    { service: 'Waist Line Elevation', price: '$55' },
+    { service: 'Dress Sewn Hem - First Layer', price: '$35' },
+    { service: 'Additional Layer', price: '$20' },
+    { service: 'Dress Hem Extra Wide Additional', price: '$10' },
+    { service: 'Shoulder, Sleeve, Collar Adjustments', price: '$30+' },
+    { service: 'Add Cups, Elastic, Or Snaps', price: '$15' },
+    { service: 'Strap Adjustment', price: '$15' },
+    { service: 'Bodice Adjustment', price: '$45' },
+    { service: 'Bodice Adjustment with Lining', price: '$55' },
+    { service: 'Bodice Adjustment with Boning', price: '$65' },
+    { service: 'Bodice Adjustment with Beading', price: '$75' },
+    { service: 'Waist / Hip Adjustment', price: '$40+' },
+    { service: 'Waist Line Elevation', price: '$45' },
+    { service: 'Add Modesty Coverage', price: '$35-60' },
+
   ];
 
   return (
@@ -26,6 +28,7 @@ const FormalDressAlterations = () => {
         pricing={pricing}
         imageUrl={FormalBackImg} // Image for the service
       />
+      
     </div>
   );
 };
