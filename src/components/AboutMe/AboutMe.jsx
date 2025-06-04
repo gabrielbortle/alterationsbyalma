@@ -26,8 +26,7 @@ const AboutMe = () => {
           </h3>
 
           <h3>
-            My family has been in the Valley since 2019 after we fell in love with both its beauty and the
-            warm community. My goal is to be of service to our community members and to get to know
+            My goal is to be of service to our community members and to get to know
             as many of you as possible.
           </h3>
         </div>

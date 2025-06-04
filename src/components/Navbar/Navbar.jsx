@@ -1,106 +1,189 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom'; // Use NavLink instead of Link
-import AlmaLogo from './AlmaLogo.jpg'
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
+import AlmaLogo from './AlmaLogo.jpg';
 
 import './Navbar.css';
 
 const Navbar = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const dropdownRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsMobile(!isMobile);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMobile(false);
-    setIsDropdownOpen(false); // Close dropdown when a link is clicked
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth', // Smooth scrolling animation
-    });
-  };
-
-  // Close the dropdown when clicking anywhere outside
+  // Update isMobile on resize
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      // Check if the click happened outside the dropdown menu
-      if (!event.target.closest('.navbar-dropdown')) {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close dropdown on click outside (only mobile)
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
         setIsDropdownOpen(false);
       }
     };
 
-    // Attach the event listener
-    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobile]);
 
-    // Cleanup the event listener on component unmount
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, []);
+  // Desktop: Open dropdown on hover over entire dropdown area
+  const handleMouseEnter = () => {
+    if (!isMobile) setIsDropdownOpen(true);
+  };
+  const handleMouseLeave = () => {
+    if (!isMobile) setIsDropdownOpen(false);
+  };
+
+  // Mobile: toggle dropdown on clicking "SERVICES"
+  const handleServicesClick = (e) => {
+    if (isMobile) {
+      e.preventDefault(); // prevent nav
+      e.stopPropagation();
+      setIsDropdownOpen((open) => !open);
+    }
+  };
+
+  // Close mobile menu and dropdown (used when clicking links)
+  const closeAllMenus = () => {
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+  };
+
+  // Scroll to top helper
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
 
   return (
-    <nav className={`navbar ${isMobile ? 'active' : ''}`}>
+    <nav className={`navbar ${isMobileMenuOpen ? 'active' : ''}`}>
       <div className="navbar-logo">
         <NavLink
           to="/"
           onClick={() => {
-            closeMenu();
+            closeAllMenus();
             scrollToTop();
           }}
         >
-          <img src={ AlmaLogo } alt="Alterations By Alma Logo" className="logo" />
+          <img src={AlmaLogo} alt="Alterations By Alma Logo" className="logo" />
         </NavLink>
       </div>
-      <ul className={`navbar-links ${isMobile ? 'active' : ''}`}>
+
+      <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
         <li>
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? 'active-link' : '')}
             onClick={() => {
-              closeMenu();
+              closeAllMenus();
               scrollToTop();
             }}
           >
             HOME
           </NavLink>
         </li>
-        <li>
+
+        <li
+          className={`navbar-dropdown ${isDropdownOpen ? 'open' : ''}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          ref={dropdownRef}
+        >
           <NavLink
             to="/services"
             className={({ isActive }) => (isActive ? 'active-link' : '')}
-            onClick={() => {
-              closeMenu();
-              scrollToTop();
-            }}
+            onClick={handleServicesClick}
           >
-            SERVICES
+            SERVICES ▾
           </NavLink>
+
+          <ul className="dropdown-menu">
+            <li>
+              <NavLink
+                to="/general-repairs"
+                onClick={() => {
+                  if (isMobile) closeAllMenus();
+                }}
+              >
+                General Repairs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/pant-repairs"
+                onClick={() => {
+                  if (isMobile) closeAllMenus();
+                }}
+              >
+                Pant Repairs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/jacket-zipper-repairs"
+                onClick={() => {
+                  if (isMobile) closeAllMenus();
+                }}
+              >
+                Jacket Zipper Repairs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/formal-dress-alterations"
+                onClick={() => {
+                  if (isMobile) closeAllMenus();
+                }}
+              >
+                Formal Dress Alterations
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/casual-and-semi-profressional"
+                onClick={() => {
+                  if (isMobile) closeAllMenus();
+                }}
+              >
+                Casual & Semi-Professional
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/formal-jacket-and-pants-alterations"
+                onClick={() => {
+                  if (isMobile) closeAllMenus();
+                }}
+              >
+                Formal Jacket & Pants
+              </NavLink>
+            </li>
+          </ul>
         </li>
-        <li>
-          <NavLink
-            to="/bags"
-            className={({ isActive }) => (isActive ? 'active-link' : '')}
-            onClick={closeMenu}
-          >
-             BAGS
-          </NavLink>
-        </li>
-        
 
         <li>
           <NavLink
+            to="/bags"
+            onClick={() => {
+              closeAllMenus();
+            }}
+          >
+            BAGS
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/about"
-            className={({ isActive }) => (isActive ? 'active-link' : '')}
-            onClick={closeMenu}
+            onClick={() => {
+              closeAllMenus();
+            }}
           >
             ABOUT
           </NavLink>
@@ -108,14 +191,20 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/contact"
-            className={({ isActive }) => (isActive ? 'active-link' : '')}
-            onClick={closeMenu}
+            onClick={() => {
+              closeAllMenus();
+            }}
           >
-             CONTACT
+            CONTACT
           </NavLink>
         </li>
       </ul>
-      <button className="navbar-toggle" onClick={toggleMenu}>
+
+      <button
+        className="navbar-toggle"
+        onClick={() => setIsMobileMenuOpen((open) => !open)}
+        aria-label="Toggle menu"
+      >
         <span className="navbar-toggle-icon"></span>
         <span className="navbar-toggle-icon"></span>
         <span className="navbar-toggle-icon"></span>
